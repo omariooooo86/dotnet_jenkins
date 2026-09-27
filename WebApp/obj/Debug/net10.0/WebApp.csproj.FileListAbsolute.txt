@@ -31,3 +31,4 @@
 /home/omariooo/Projects/DotNet/Jenkins_test/WebApp/obj/Debug/net10.0/WebApp.pdb
 /home/omariooo/Projects/DotNet/Jenkins_test/WebApp/obj/Debug/net10.0/WebApp.genruntimeconfig.cache
 /home/omariooo/Projects/DotNet/Jenkins_test/WebApp/obj/Debug/net10.0/ref/WebApp.dll
+/home/omariooo/Projects/DotNet/Jenkins_test/WebApp/obj/Debug/net10.0/WebApp.sourcelink.json
