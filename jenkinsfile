@@ -1,0 +1,31 @@
+node {
+ 
+    stage('Source') {
+        git branch: 'main',
+            url: 'https://github.com/omariooooo86/dotnet_jenkins'
+    }
+ 
+    stage('Restore') {
+        sh 'dotnet restore'
+    }
+    stage('Build') {
+        sh 'dotnet build --configuration Release --no-restore'
+    }
+    stage('Test') {
+        sh 'dotnet test --configuration Release --no-build'
+    }
+ 
+    stage('Build Image') {
+        appImage = docker.build('omariooo/web:v0.1', '-f WebApp/Dockerfile .')
+    }
+ 
+    stage('Push Image') {
+        docker.withRegistry('https://index.docker.io/v1/', 'docker_jenkins_crd')  {
+            appImage.push()
+        }
+    }
+ 
+    stage('Deploy') {
+        sh 'docker run -d --name webapp -p 9999:9999 omariooo/web:v0.1'
+    }
+}
